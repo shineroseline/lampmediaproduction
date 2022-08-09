@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+:root{
+--primary-color:#047aed;
+--secondary-color:#1c3fa8;
+--dark-color:#002240;
+--light-color:#f4f4f4;
+--sucess-color:#5cb85c;
+--error-color:#d9534f;
+}
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    font-family:'lato', sans-serif;
+    color:#333;
+    line-height: 1.6;
+}
+ul{
+    list-style-type: none;
+    
+}
+
+a{
+    text-decoration: none;
+    color:#333;
+    
+}
+h1, h2{
+    font-weight: 300;
+    line-height: 1.2;
+    margin:10px 0;
+}
+p{
+    margin:10px 0;
+}
+img{
+    width:100%;
+    
+}
+.hidden{
+    visibility:hidden;
+    height: 0;
+}
+/*Navbar styling*/
+.navbar{
+    background-color:var(--primary-color);
+    color:white;
+    height:100%;
+    width: 100%;
+    
+}
+.logo_wrapper{
+    display:flex;
+    border-top: 40px;
+    margin-top: 40px;
+}
+.logo_wrapper h1{
+    padding:20px;
+    align-items: center;
+}
+.logo_wrapper img{
+    width:100px;
+    border-left: 20px;
+    margin-left: 5px;
+    position: relative;
+}
+.navbar ul{
+    display:flex;
+    overflow:visible;
+}
+.navbar a{
+    color:white;
+    padding:10px;
+    margin:0 5px;
+}
+.narvbar a:hover{
+    border-bottom:2px rgb(226, 7, 7) solid;
+    /*this is not worrking*/
+}
+
+/*showcase styling*/     /*color blue can be defined as a 
+primary color in a global variable  using the root-scope which help us to be able to use
+it anywhere in our css code*/
+.showcase{
+    height:400px;
+    background-color: var(--primary-color);
+    color:white;
+    position:relative;
+}
+.showcase h1{
+    font-size: 40px;
+}
+.showcase p{
+    margin:20px 0;
+}
+.showcase .grid{
+    overflow:visible;      
+    grid-template-columns: 55% 45%;     /*55% for text column and 45% for form column*/
+    gap:30px;
+}
+.showcase-text{
+    animation: slideInFromLeft 1s ease-in;
+}
+.showcase-requestform{
+    position: relative;
+    top: 60px;
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    z-index:100;
+    padding-bottom: 20px;
+    animation: slideInFromRight 1s ease-in;
+}
+
+.showcase-requestform .requestform-control{
+    margin: 30px 0;
+}
+.showcase-requestform input[type="text"],
+.showcase-requestform input[type="email"] {
+border:0;
+border-bottom: 1px solid #b4becd;
+width: 100%;
+padding: 3px;
+font-size: 16px;
+}
+.showcase-requestform input:focus{      /*this removes the bounding border around the input button*/
+    outline: none;
+}
+.card-mx{
+    max-width: 150px;
+}
+.card-img-container{
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+.card-img-container img{
+    width: 80% !important;
+    object-fit: cover;
+}
+.showcase::before,      /*This covered parts of my form, how do i place the form on it*/
+.showcase::after{
+    content: '';
+    position: absolute;
+    height:90px;
+    bottom:-70px;
+    left:0;
+    right:0;
+    background:#fff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+    padding-bottom: 20px;
+} 
+
+/*STATS*/
+.stats{
+    padding-top: 100px;
+    animation: slideInFromBottom 1s ease-in;
+}
+.stats-heading {
+    max-width:500px;
+    margin:auto;
+    align-self: center;
+    
+}
+.stats .grid h3{
+    font-size:35px;
+}
+.stats .grid p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*CLI_OURWORKS*/
+.cli_ourworks .grid{
+grid-template-columns: repeat(3,1fr);   /*This create 3 columns to display the grid*/
+grid-template-rows: repeat(2,1fr);      /*this create the second row. so we now have 3cols and 2rows*/
+}
+.cli_ourworks .grid > *:first-child{        
+    grid-column: 1/ span 2;         /*This make the first item in the grid to cover the 1st and 2nd row*/
+    grid-row:1/span 2;          /*This make the first item on the second row to span from col 1 to col 2*/
+}       /*this makes the first item on the grid to span through 2 rows and 2columns*/
+
+/*flyers*/
+.flyers .grid{
+    grid-template-columns: 4fr 3fr;
+}
+/*portfolio*/
+.portfolio .flex {
+flex-wrap: wrap;
+}
+.portfolio .card {
+    text-align: center;
+    margin:18px 10px 40px;
+    transition: transform 0.2s ease-in;
+}
+.portfolio .card h4{
+    font-size:20px;
+    margin-bottom: 10px;
+}
+.portfolio.card img{
+    display: flex;
+    height: 200;
+    width: 300;
+}
+.portfolio .card:hover{
+    transform: translateY(-15px);
+}
+
+
+
+/*Homepage-products*/
+.about_us-head img,
+.services-head img {
+    width:300px;
+    justify-self: flex-end;
+}
+.about_us-sub-head video{
+    width:300px;
+    justify-self: flex-end;
+   
+}
+.about_us-sub-head img{
+    width:300px;  
+    justify-self: flex-end;
+}
+.about_us-main .card > i {          /* This puts space in between the icons and the text*/
+margin-right: 20px;
+}
+.about_us-main .grid{
+    padding:30px;
+}
+.about_us-main .grid h3{
+   text-align: center;
+}
+.about_us-main .grid>*:first-child{         /*the first grid span through the 3 columns*/
+    grid-column: 1/span 3;
+}
+.about_us-main .grid>*:nth-child(2){
+    grid-column: 1/span 2;
+}
+
+
+/*our services*/
+.my-2 a{
+    color:red;
+}
+/*services main*/
+.services-main h3{
+    margin:20px 0;
+}
+.services-main .grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-start;
+}
+.services-main nav li{
+    font-size: 17px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+   }
+   .services-main a:hover{
+    font-weight: bold;
+   }
+/*footer*/
+.footer .social a{
+margin:0 10px;
+}
+
+
+/*animations*/
+@keyframes slideInFromLeft {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0%{
+        transform: Y(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/*Tablets and under*/
+@media (max-width:768px) {
+   .grid,
+   .showcase .grid,
+   .stats .grid,
+   .cli .grid,
+   .cloud .grid,
+   .services-main .grid,
+   .about_us-main .grid{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+   }
+   .showcase{
+    height: auto;
+   }
+   .showcase-text{
+    text-align: center;
+    margin-top: 40px;
+   }
+   .showcase-requestform{
+    justify-self: center;
+    margin: auto;
+   }
+   .cli_ourworks .grid > *:first-child{        
+    grid-column: 1;        
+    grid-row:1;         
+    }  
+    .about_us-head,
+    .about_us-sub-head,
+    .services-head{
+        text-align: center;
+    }
+    .about_us-head img,
+    .about_us-sub-head img,
+    .services-head img{
+        justify-self: center;
+    }
+    .about_us-main .grid > *:first-child,
+    .about_us-main .grid >*:nth-child(2){
+        grid-column: 1;
+    }
+}
+
+
+
+
+/*Mobile*/
+@media(max-width: 500px){
+    .navbar{
+        height:110px;
+    }
+    .navbar .flex{
+        flex-direction: column;
+    }
+    .navbar ul{
+        padding:10px;
+        background-color: rgba(0,0,0,0.1);
+    }
+}
